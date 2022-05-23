@@ -1,0 +1,52 @@
+/* General styling */
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+/* Calculator */
+
+#calc
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+#calc-header
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#calc-pad
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: .75rem;
+    padding: 1rem;
+}
+
+.col
+{
+    display: inherit;
+    align-items: inherit;
+    gap: 1rem;
+}
+
+/* Attribution */
+
+.attribution
+{
+    font-size: .75rem;
+    text-align: center;
+}
+
+.attribution a 
+{
+    color: hsl(228, 45%, 44%);
+}
