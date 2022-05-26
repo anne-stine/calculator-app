@@ -15,7 +15,7 @@
 
 <body>
     <div id="calc">
-        <div id="calc-header">
+        <div class="calc-header">
             <div class="col">
                 <span>calc</span>
             </div>
@@ -23,24 +23,24 @@
                 <div>
                     <span>Theme</span>
                 </div>
-                <div id="calc-theme">
+                <div class="calc-theme">
                     <span>1</span>
                     <span>2</span>
                     <span>3</span>
-                    <div id="calc-switch">
+                    <div class="calc-switch">
                         <button></button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <input type="number" name="calc-display" id="calc-display" pattern="[0-9]*" autocomplete="off" readonly>
+        <input type="text" name="calc-display" id="calc-display" autocomplete="off" readonly step="">
 
-        <div id="calc-pad">
+        <div class="calc-pad">
             <button value="7">7</button>
             <button value="8">8</button>
             <button value="9">9</button>
-            <button>Del</button>
+            <button value="del">Del</button>
 
             <button value="4">4</button>
             <button value="5">5</button>
@@ -52,13 +52,13 @@
             <button value="3">3</button>
             <button value="-">-</button>
 
-            <button value=",">.</button>
+            <button value=".">.</button>
             <button value="0">0</button>
             <button value="/">/</button>
             <button value="*">x</button>
 
-            <button>Reset</button>
-            <button>=</button>
+            <button value="reset">Reset</button>
+            <button value="calculate">=</button>
         </div>
     </div>
 
