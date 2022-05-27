@@ -9,6 +9,8 @@ html, body
     background: hsl(222, 26%, 31%);
 }
 
+/* Text styling */
+
 h1, h2, h3, h4, h5, p, span, button, input
 {
     font-family: "League Spartan", sans-serif;
@@ -20,6 +22,16 @@ p, span, button, input
     font-size: 2rem;
 }
 
+/* Cursor on active states */
+
+button:hover,
+button:active
+{
+    cursor: pointer;
+}
+
+/* Color theme */
+
 :root
 {
     color-scheme: dark;
@@ -30,11 +42,13 @@ p, span, button, input
 #calc
 {
     margin: 0 auto;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
+
+/* Calc header */
 
 .calc-header
 {
@@ -43,23 +57,40 @@ p, span, button, input
     justify-content: space-between;
 }
 
-.calc-header > .col:nth-last-child(1)
+.calc-header > .col
+{
+    display: inherit;
+    align-items: inherit;
+    gap: 1rem;
+}
+
+/* Theme switcher */
+
+.calc-header > .col:nth-last-child(1) span
 {
     font-size: .75rem;
     text-transform: uppercase;
+    letter-spacing: .125rem;
 }
 
-.calc-switch
+.calc-theme-numbers
+{
+    display: flex;
+    justify-content: space-between;
+    padding: .25rem .5rem;
+}
+
+.calc-theme-switch
 {
     display: flex;
     flex-direction: row;
     border-radius: 5rem;
-    width: 4rem;
+    width: 3.75rem;
     padding: .3rem;
     background: hsl(223, 31%, 20%);
 }
 
-.calc-switch > button
+.calc-theme-switch > button
 {
     height: 1rem;
     width: 1rem;
@@ -68,8 +99,12 @@ p, span, button, input
     background: hsl(6, 63%, 50%);
 }
 
+/* Calc display */
+
 #calc-display
 {
+    box-sizing: border-box;
+    width: 100%;
     border: none;
     border-radius: .5rem;
     padding: 1.5rem;
@@ -77,8 +112,10 @@ p, span, button, input
     justify-content: center;
     font-size: 2.5rem;
     background: hsl(224, 36%, 15%);
-    color: hsl(0, 0, 100%);
+    color: white;
 }
+
+/* Calc operating pad */
 
 .calc-pad
 {
@@ -94,47 +131,48 @@ p, span, button, input
 {
     border: none;
     border-radius: .25rem;
-    height: 3.75rem;
+    height: 4rem;
     background: hsl(30, 25%, 89%);
     box-shadow: inset 0 -.25rem hsl(28, 16%, 65%);
     color: hsl(221, 14%, 31%);
     transition: .2s;
 }
 
+/* Let last two buttons occupy more space */
+
 .calc-pad > button:nth-last-child(-n+2)
 {
     grid-column: span 2;
 }
 
+/* Accent buttons */
+
 .calc-pad > button:nth-child(4),
-.calc-pad > button:nth-child(17)
+.calc-pad > button:nth-child(17),
+.calc-pad > button:nth-child(18)
 {
     background: hsl(225, 21%, 49%);
     box-shadow: inset 0 -.25rem hsl(224, 28%, 35%);
-    color: hsl(0, 0, 100%);
-    font-size: 1.5rem;
+    color: white;
+    font-size: 1.25rem;
     text-transform: uppercase;
 }
+
+/* Calculate button */
 
 .calc-pad > button:nth-child(18)
 {
     background: hsl(6, 63%, 50%);
     box-shadow: inset 0 -.25rem hsl(6, 70%, 34%);
-    color: hsl(0, 0, 100%);
 }
+
+/* Button click animation */
 
 .calc-pad > button:active
 {
     box-shadow: none;
     transform: translateY(.25rem);
-    height: 3.5rem;
-}
-
-.col
-{
-    display: inherit;
-    align-items: inherit;
-    gap: 1rem;
+    height: 3.75rem;
 }
 
 /* Attribution */
@@ -144,9 +182,4 @@ p, span, button, input
     font-size: .75rem;
     line-height: 1rem;
     text-align: center;
-}
-
-.attribution a 
-{
-    color: hsl(228, 45%, 44%);
 }

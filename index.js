@@ -19,6 +19,7 @@ document.addEventListener("click", (e) =>
         /* Calc input and operators */
 
         case "1": case "2": case "3": case "4": case "5": case "6": case "7": case "8": case "9": 
+            calcDisplay.value == sum ? calcDisplay.value = "" : false
             calcDisplay.value += e.target.value
             break
 
@@ -33,15 +34,14 @@ document.addEventListener("click", (e) =>
             break
 
         case "+": case "-": case "*": case "/":
-            // e.target.value === calc[-1] ?
-            // calc.splice(-1, 1, e.target.value) :
-            calc.push(calcDisplay.value, e.target.value)
-
+            calcDisplay.value ? calc.push(calcDisplay.value) : false
+            !calcDisplay.value || !typeof calc.at(-1) === "number" ? calc.pop() : false // Overrides last operator in array if any
+            calc.push(e.target.value)
             calcDisplay.value = ""
             console.log(calc)
             break
 
-        /* Clear calc-display value */
+        /* Clear calc-display */
 
         case "del":
             calcDisplay.value = ""
@@ -59,17 +59,7 @@ document.addEventListener("click", (e) =>
 
         case "calculate":
             calc.push(calcDisplay.value)
-            console.log(calc)
-            
-            str = calc.join(" ")
-            sum = Number(str)
-            
-            // for (i = 0; i < calc.length; i++)
-            // {
-            //     sum += parseFloat(calc[i])
-            //     console.log(sum)
-            // }
-            
+            sum = eval(calc.join(" ")) // Eval can read string as numbers/operators without being so damn critical <3
             calc = []
             calcDisplay.value = sum
             break
